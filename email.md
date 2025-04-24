@@ -1,7 +1,11 @@
 ---
 layout: default
-title: "Subject: 📊 Your Data Detective Skills Are Needed! 🕵️‍♂️"
+title: "urgent email"
 ---
+
+![](image.jpeg)
+
+----
 
 From: The Small News Website Team [team@smallnewswebsite.com](mailto:team@smallnewswebsite.com)
 
