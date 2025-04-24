@@ -1,0 +1,73 @@
+---
+title: "R Tutorial"
+date: "April 24, 2025"
+author: "Aman"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(socviz) 
+library(gapminder)
+library(ggplot2)
+library(dplyr)
+library(ggrepel)
+library(nycflights13)
+
+# you can install some libraries for even more themes: rmdformats, prettydoc, hrbrthemes, tint, tufte
+```
+
+
+```{r}
+perf <- flights %>% group_by(carrier) %>% summarize(total=n(),delayed=sum(dep_delay>0,na.rm = TRUE),canceled=sum(is.na(dep_delay))) %>% mutate(on_time=total-delayed-canceled)
+
+perf
+```
+
+```{r}
+t<-gss_sm %>% group_by(bigregion,religion) %>% summarize(N=n()) %>% mutate(percent=round(N*100/sum(N),1))
+t
+```
+
+```{r}
+ggplot(t,aes(bigregion,percent,fill=religion))+geom_col(position="dodge")
+```
+
+```{r}
+ggplot(t,aes(percent,religion))+facet_wrap(~bigregion,nrow=1)+geom_col()
+```
+
+```{r}
+t <- organdata %>% group_by(country) %>% summarise(mean_donors=mean(donors,na.rm=TRUE))
+t
+```
+
+```{r}
+ggplot(t,aes(mean_donors,reorder(country,mean_donors)))+geom_point()
+```
+
+```{r}
+t <- organdata %>% group_by(country,consent_law) %>% summarise(mean_donors=mean(donors,na.rm=TRUE))
+ggplot(t,aes(mean_donors,reorder(country,mean_donors),color=consent_law))+geom_point()
+```
+
+```{r}
+elections <- elections_historic %>% mutate(century=as.character(1+year%/%100))
+ggplot(elections,aes(popular_pct,ec_pct))+
+  geom_hline(yintercept = 0.5,color="grey")+
+  geom_vline(xintercept = 0.5,color="grey")+
+  geom_point(aes(color=century))+
+  geom_text_repel(aes(label=winner),size=2,seed=1)
+```
+
+```{r}
+ggplot()+
+  geom_hline(yintercept = 0.5,color="grey")+
+  geom_vline(xintercept = 0.5,color="grey")+
+  geom_point(elections,mapping=aes(popular_pct,ec_pct,color=century))+
+  geom_text_repel(filter(elections,winner %in% c("Donald Trump","Barack Obama")),mapping=aes(popular_pct,ec_pct,label=winner),seed=1)
+```
+
