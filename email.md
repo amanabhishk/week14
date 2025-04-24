@@ -1,6 +1,17 @@
 ---
 layout: default
+title: ""
 ---
+
+From: The Small News Website Team team@smallnewswebsite.com
+
+To: j677@wisc.edu
+
+Date: April 24, 2025
+
+Time: 3:14 PM
+
+-----
 
 **Subject: 📊 Your Data Detective Skills Are Needed! 🕵️‍♂️**
 
