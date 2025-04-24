@@ -1,11 +1,11 @@
 ---
 layout: default
-title: ""
+title: "Subject: 📊 Your Data Detective Skills Are Needed! 🕵️‍♂️"
 ---
 
-From: The Small News Website Team team@smallnewswebsite.com
+From: The Small News Website Team [team@smallnewswebsite.com](mailto:team@smallnewswebsite.com)
 
-To: j677@wisc.edu
+To: [j677@wisc.edu](mailto:j677@wisc.edu)
 
 Date: April 24, 2025
 
