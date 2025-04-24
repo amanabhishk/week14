@@ -3,7 +3,9 @@ layout: default
 title: "urgent email"
 ---
 
-![](image.jpeg)
+<div style="text-align: center;">
+    <img src="image.jpeg" width="500">
+</div>
 
 ----
 
